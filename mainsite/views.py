@@ -1,5 +1,9 @@
+from django.conf import settings
+from django.core.mail import EmailMessage
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.template.loader import render_to_string
 
 from .models import Post
 from .forms import PostForm
@@ -66,3 +70,25 @@ def delete_post(request, pk):
         return redirect('posts')
     context = {'item': post}
     return render(request, 'mainsite/delete.html', context)
+
+
+def send_email(request):
+
+    if request.method == 'POST':
+        template = render_to_string('mainsite/email_template.html', {
+            'name': request.POST['name'],
+            'email': request.POST['email'],
+            'message': request.POST['message'],
+
+        })
+
+        email = EmailMessage(
+            request.POST['subject'],
+            template,
+            settings.EMAIL_HOST_USER,
+            ['zokirovrustam202@gmail.com']
+        )
+        email.fail_silently = False
+        email.send()
+
+    return render(request, 'mainsite/email_sent.html')
