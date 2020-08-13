@@ -1,2 +1,7 @@
 # django-pfs
-Simple Portfolio Website in Django with some Bootstrap 
+Portfolio Website in Django
+
+```
+pip install pillow
+pip install django-crispy-forms
+``` 
