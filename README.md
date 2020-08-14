@@ -14,5 +14,5 @@ GETTING STARTED
     http://127.0.0.1:8000/
     
 4 - Create superuser
-    python manage.py createsuperuser
+    ``python manage.py createsuperuser``
     
