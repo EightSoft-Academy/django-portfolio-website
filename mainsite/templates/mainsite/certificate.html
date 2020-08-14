@@ -14,13 +14,17 @@
     {% include 'mainsite/navbar.html' %}
 
     <div class="main-container">
-        <img src="{{ post.thumbnails.url }}">
+        <img src="{{ certificate.thumbnails.url }}">
 
-        <h1>{{ post.headline }}</h1>
+        <h1>{{ certificate.headline }}</h1>
 
-        <h4>{{ post.sub_headline }}</h4>
+        <h4>{{ certificate.sub_headline }}</h4>
 
-        <p>{{ post.body|linebreaks }}</p>
+        <p>Validation ID: {{ certificate.validation_id }}</p>
+        
+        <p>Issued date: {{ certificate.created }}</p>
+
+        <p>{{ certificate.body|linebreaks }}</p>
 
     </div>
 {% endblock content %}

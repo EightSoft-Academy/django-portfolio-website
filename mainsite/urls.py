@@ -8,6 +8,10 @@ urlpatterns = [
     path('post/<str:pk>/', views.post, name='post'),
     path('profile/', views.profile, name='profile'),
 
+
+    path('certificates/', views.certificates, name='certificates'),
+    path('certificate/<str:pk>/', views.certificate, name='certificate'),
+
     # CRUD PATHS
     path('create_post/', views.create_post, name='create_post'),
     path('update_post/<str:pk>/', views.update_post, name='update_post'),

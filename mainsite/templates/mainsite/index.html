@@ -32,7 +32,7 @@
 							<div id="corner-tl" class="corner"></div>
 							<div id="corner-tr" class="corner"></div>
 							<h3>What I Do</h3>
-							<p>I was a lead developer in a past life, now I enjoy teaching courses.</p>
+							<p>I am a Python developer, now I am challenging myself with #100daysofMLcode.</p>
 							<div id="corner-br" class="corner"></div>
 							<div id="corner-bl" class="corner"></div>
 						</div>
@@ -42,62 +42,50 @@
 		</div>
 	</section>
 
-	<section class="s2">
+	<section class="s2">	
 		<div class="main-container">
 
 			<div class="about-wrapper">
 				<div class="about-me">
 					<h4>More about me</h4>
 
-					<p>I build new projects just to tickle my brain and love teaching others how they're made.</p>
+					<p>I build new projects just to tickle my brain and love sharing with others how they're made.</p>
 
-					<p>While I keep busy teaching courses, I still take interviews in search of a great team & projects that interest me.</p>
+					<p>While I keep busy with ordinary work, I take interviews in search of a great team & projects that interest me.</p>
 
+					<p>Check my <a href="https://github.com/Rustam-Z">GutHub Page</a> to see my projects.</p>
 
 					<hr>
 
 					<h4>TOP EXPERTISE</h4>
 
-					<p>Fullstack developer with primary focus on Django + React: <a target="_blank" href="{% static 'resume.pdf'%}">Download Resume</a></p>
+					<p>Python developer with primary focus on Django: <a target="_blank" href="{% static 'resume.pdf'%}">Download Resume</a></p>
 
 					<div id="skills">
 						<ul>
 							<li>Python</li>
 							<li>Django</li>
-							<li>JavaScript</li>
-							<li>React</li>
-							<li>Postgres</li>
+							<li>Django REST Framework</li>
+							<li>Tkinter GUI programming</li>
+							<li>C++</li>
 						</ul>
 
 						<ul>
-							<li>Google Maps API</li>
-							<li>JS Charts</li>
-							<li>AWS (RDS/S3)</li>
-							<li>Heroku</li>
-							<li>HTML/CSS</li>
+							<li>Machine Learning</li>
+							<li>SQL</li>
+							<li>Flask</li>
+							<li>HTML</li>
+							<li>CSS</li>
 						</ul>
-
 					</div>
-
-				</div>
-
-				
-				<div class="social-links">
-					<img id="social_img" src="{% static 'images/follow.jpg' %}">
-					<h3>Find me on Twitter & Youtube</h3>
-
-					<a target="_blank" href="https://www.youtube.com/c/dennisivy">YouTube: @DennisIvy</a>
-					<br>
-					<a target="_blank" href="https://twitter.com/dennisivy11">Twitter: @DennisIvy11</a>
 				</div>
 			</div>
-
 		</div>
 	</section>
 
 	<section class="s1">
 		<div class="main-container">
-			<h3 style="text-align: center;">Some of my past projects</h3>
+			<h3 style="text-align: center;">Some of my last posts and projects</h3>
 
 			<div class="post-wrapper">
                 {% for post in posts %}
@@ -112,13 +100,37 @@
                 {% endfor %}
 			</div>
 
-            <p align="center">
+            <p style="text-align: center">
                 <a href="{% url 'posts' %}">View more</a>
             </p>
 
         </div>
     </section>
 
+	<section class="s1">
+		<div class="main-container">
+			<h3 style="text-align: center;">My Licenses & Certifications</h3>
+
+			<div class="post-wrapper">
+                {% for certificate in certificates %}
+                <div class="post">
+                    <img class="thumbnail" src="{{ certificate.thumbnails.url }}">
+                    <div class="post-preview">
+                        <h6 class="post-title">{{ certificate.headline }}</h6>
+                        <p class="post-intro">{{ certificate.sub_headline }}</p>
+                        <a href="{% url 'certificate' certificate.id %}">More Info</a>
+                    </div>
+                </div>
+                {% endfor %}
+			</div>
+
+            <p style="text-align: center;">
+                <a href="{% url 'certificates' %}">View more</a>
+            </p>
+
+        </div>
+	</section>
+	
 	<section class="s2">
 		<div class="main-container">
 			<a href=""></a>
@@ -144,6 +156,18 @@
 			</form>
 		</div>
 	</section>
+
+	<!-- <section class="s1">
+		<div class="main-container">
+			<img id="social_img" src="{% static 'images/follow.jpg' %}"
+			<h3 style="text-align: center;">Find me on Social</h3>
+	
+			<a target="_blank" href="https://www.linkedin.com/in/rustam-zokirov-6476b71a2/">LinkedIn: @Rustam Zokirov</a>
+			<br>
+			<a target="_blank" href="https://www.instagram.com/eight.soft/">Instagram: @eight.soft</a>
+		</div>
+	</section>		 -->
+
 
     <script type="text/javascript">
         let static = "{% static 'css' %}"

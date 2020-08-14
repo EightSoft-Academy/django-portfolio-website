@@ -5,13 +5,14 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 
-from .models import Post
+from .models import Post, Certificate
 from .forms import PostForm
 
 
 def home(request):
     posts = Post.objects.filter(active=True, featured=True)[0:3]
-    context = {'posts': posts}
+    certificate = Certificate.objects.filter(active=True, featured=True)[0:3]
+    context = {'posts': posts, 'certificates':certificate}
     return render(request, 'mainsite/index.html', context)
 
 
@@ -25,6 +26,18 @@ def post(request, pk):
     post = Post.objects.get(id=pk)
     context = {'post': post}
     return render(request, 'mainsite/post.html', context)
+
+
+def certificates(request):
+    certificates = Certificate.objects.filter(active=True)
+    context = {'certificates': certificates}
+    return render(request, 'mainsite/certificates.html', context)
+
+
+def certificate(request, pk):
+    certificate = Certificate.objects.get(id=pk)
+    context = {'certificate': certificate}
+    return render(request, 'mainsite/certificate.html', context)
 
 
 def profile(request):

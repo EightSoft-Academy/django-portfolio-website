@@ -1,0 +1,31 @@
+{% extends 'mainsite/main.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'mainsite/navbar.html' %}
+    <div class="main-container">
+        <h1>My Certificates</h1>
+
+        <div class="post-wrapper">
+
+            {% for certificate in certificates %}
+            <div class="post">
+                <img class="thumbnail" src="{{ certificate.thumbnails.url }}">
+                <div class="post-preview">
+                    <h6 class="post-title">{{ certificate.headline }}</h6>
+                    <p class="post-intro">{{ certificate.sub_headline}}</p>
+                    <a href="{% url 'certificate' certificate.id %}">More Info</a>
+
+                    {% for tag in certificate.tags.all %}
+                        <span class='tag'>{{tag}} </span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% empty %}
+                <h3>No Certificates found ...</h3>
+            {% endfor %}
+
+        </div>
+
+    </div>
+{% endblock content %}
