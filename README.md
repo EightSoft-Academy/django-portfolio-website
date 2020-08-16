@@ -16,3 +16,9 @@ GETTING STARTED
 4 - Create superuser
     ``python manage.py createsuperuser``
     
+## My projects
+- **Personal blog** with tagging system, commenting, sharing posts via e-mail, recommending similar posts with custom search engine
+- **Portfolio website**
+- **Polling website**
+- **Website for the travvelning agency**
+- **Cinema website**
